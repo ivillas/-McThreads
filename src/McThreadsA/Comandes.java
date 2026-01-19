@@ -10,18 +10,17 @@ import java.util.ArrayList;
 public class Comandes {
 
 
-
 	    private ArrayList<String> cua = new ArrayList<>();
 	    int nComanda = 0; 
 	    
 
-	    public synchronized void ponerComanda(String c) {
+	    public synchronized void posarComanda(String c) {
 	        cua.add(c);
 	        notifyAll(); // avisa al cuiner
 	    }
 
 
-	    public synchronized String cogerComanda() throws InterruptedException {
+	    public synchronized String agafarComanda() throws InterruptedException {
 	        while (cua.isEmpty()) {
 	            wait(); // espera si no hi ha comandes
 	        }
